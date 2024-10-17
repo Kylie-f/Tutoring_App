@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+{% block title %}Schedule{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Schedule</h1>
+        <p>This is where you can view the schedule of available tutoring hours.</p>
+
+        <!-- Calendar Section -->
+        <div class="mt-4">
+            <h2>Tutors Availability</h2>
+            <h3><small> Tutoring Monday - Friday in the FishBowl!</small></h3>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Tutor</th>
+                        <th>Available Hours</th>
+                        <th>Suggested Classes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td>Ashlee Bird</td>
+                        <td>10:00 AM - 12:00 PM</td>
+                        <td>CSCI 150</td>
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td>Bridget Smith</td>
+                        <td>1:00 PM - 3:00 PM</td>
+                        <td>CSCI 151</td>
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td>Ben Johnson</td>
+                        <td>2:00 PM - 4:00 PM</td>
+                        <td>CSCI 152</td>
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td>Trevor Walker</td>
+                        <td>9:00 AM - 11:00 AM</td>
+                        <td>CSCI 258</td>
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td>Emma Jones</td>
+                        <td>12:00 PM - 1:00 PM</td>
+                        <td>CSCI 150, 151, 152, 258</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
+

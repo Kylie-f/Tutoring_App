@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ tutor.name }}'s Profile{% endblock title %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>{{ tutor.name }}</h1>
+    <p>Available Hours: {{ tutor.available_hours }}</p>
+    <p>Classes: {{ tutor.classes }}</p>
+    <a href="{% url 'tutors' %}" class="btn btn-secondary">Back to Tutors List</a>
+</div>
+{% endblock content %}

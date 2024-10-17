@@ -1,0 +1,24 @@
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="mb-4">Available Tutors</h1>
+    <div class="row">
+        {% for tutor in tutors %}
+        <div class="col-md-4">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="card-title">{{ tutor.name }}</h5>
+                    <p class="card-text"><strong>Major:</strong> {{ tutor.major }}</p>
+                    <p class="card-text"><strong>Fun Fact:</strong> {{ tutor.fun_fact }}</p>
+                    
+                    </p>
+                    <p class="card-text tutor-description"><strong>Description:</strong> {{ tutor.description }}</p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

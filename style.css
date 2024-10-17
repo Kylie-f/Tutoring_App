@@ -1,0 +1,25 @@
+.tutor-description {
+    font-size: 1.1em; /* Slightly larger text */
+    color: #555; /* Darker text color for better contrast */
+    margin-top: 10px; /* Space above the description */
+    border: 1px solid #ccc; /* Border around the description */
+    padding: 10px; /* Padding for spacing */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+}
+
+/* Custom styles for the navbar */
+.navbar {
+    background-color: #007bff; /* Change to your preferred background color */
+    position: sticky; /* Makes the navbar sticky */
+    top: 0; /* Sticks it to the top */
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+.navbar a {
+    color: white; /* Change text color to white */
+}
+
+.navbar a:hover {
+    color: #ffc107; /* Change text color on hover */
+}

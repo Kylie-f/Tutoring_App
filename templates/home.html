@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Tutoring Hours{% endblock title %}</title>
+
+    <!-- Load static template tag library -->
+    {% load static %}
+
+    <!-- Link to custom styles for UM theme -->
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    
+    <!-- Bootstrap CSS for layout and styling -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar with darker UM theme color -->
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #800000;"> <!-- Darker UM Maroon Color -->
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Tutoring Hours</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'tutors_list' %}">Tutors</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'schedule' %}">Schedule</a></li>
+                    {% if user.is_authenticated %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li class="nav-item"><a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href="{% url 'signup' %}">Sign Up</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Block -->
+    <div class="container mt-4">
+        <h1 class="text-center">Welcome to the Tutoring Hours Portal</h1>
+
+        <!-- Display greeting if the user is logged in -->
+        {% if user.is_authenticated %}
+            <div class="text-center mt-4">
+                <h3>Hi {{ user.username }}!</h3>
+            </div>
+        {% else %}
+            <div class="text-center mt-4">
+                <a href="{% url 'signup' %}" class="btn btn-primary">Sign Up</a>
+                <a href="{% url 'login' %}" class="btn btn-secondary">Sign In</a>
+            </div>
+        {% endif %}
+
+        <!-- Calendar Section -->
+        <div class="mt-4">
+            <h2>Tutors Availability</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Day</th>
+                        <th>Tutor</th>
+                        <th>Available Hours</th>
+                        <th>Suggested Classes</th>
+                        {% if user.is_authenticated %}
+                            <th>Edit</th>
+                        {% endif %}
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Monday</td>
+                        <td><a href="{% url 'tutors_list' %}">Ashlee Bird</a></td>
+                        <td>10:00 AM - 12:00 PM</td>
+                        <td>CSCI 150</td>
+                        {% if user.is_authenticated %}
+                            <td><a href="{% url 'edit_hours' 1 %}" class="btn btn-sm btn-warning">Edit</a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Tuesday</td>
+                        <td><a href="{% url 'tutors_list' %}">Bridget Smith</a></td>
+                        <td>1:00 PM - 3:00 PM</td>
+                        <td>CSCI 151</td>
+                        {% if user.is_authenticated %}
+                            <td><a href="{% url 'edit_hours' 2 %}" class="btn btn-sm btn-warning">Edit</a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Wednesday</td>
+                        <td><a href="{% url 'tutors_list' %}">Ben Johnson</a></td>
+                        <td>2:00 PM - 4:00 PM</td>
+                        <td>CSCI 152</td>
+                        {% if user.is_authenticated %}
+                            <td><a href="{% url 'edit_hours' 3 %}" class="btn btn-sm btn-warning">Edit</a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Thursday</td>
+                        <td><a href="{% url 'tutors_list' %}">Trevor Walker</a></td>
+                        <td>9:00 AM - 11:00 AM</td>
+                        <td>CSCI 258</td>
+                        {% if user.is_authenticated %}
+                            <td><a href="{% url 'edit_hours' 4 %}" class="btn btn-sm btn-warning">Edit</a></td>
+                        {% endif %}
+                    </tr>
+                    <tr>
+                        <td>Friday</td>
+                        <td><a href="{% url 'tutors_list' %}">Emma Jones</a></td>
+                        <td>12:00 PM - 1:00 PM</td>
+                        <td>CSCI 150, 151, 152, 258</td>
+                        {% if user.is_authenticated %}
+                            <td><a href="{% url 'edit_hours' 5 %}" class="btn btn-sm btn-warning">Edit</a></td>
+                        {% endif %}
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS for responsive functionality -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
